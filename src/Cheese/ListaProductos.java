@@ -54,7 +54,11 @@ public class ListaProductos {
         listaP.put(prod.getcode(), prod);
         return prod;
     }
-
+       /**
+        * revisame si un producto esta duplicado o no 
+        * @param codigo  codena  que se analiza
+        * @return Si esta duplicado ponmelo como null ,pero sino añademelo
+        */
     public Producto eliminarProducto(String codigo) { 
         
         Producto prod = buscarProducto(codigo);
@@ -65,7 +69,11 @@ public class ListaProductos {
         }
         return prod;
     }
-
+        /**
+         * Demuestrame si el codigo del producto esta
+         * @param codigo  
+         * @return producto eliminado
+         */
     public Producto buscarProducto(String codigo) { 
         Producto prod = null;
         
@@ -76,14 +84,23 @@ public class ListaProductos {
             return listaP.get(codigo);
         }
     }
-
+/**
+ * Busca el codigo del producto
+ * @return si lo encuentras muestamelo pero sino muestrame la lista de los productos
+ */
     public ArrayList<Producto> getProductos() {
         ArrayList<Producto> prodsList = new ArrayList<>();
         prodsList.addAll(listaP.values());
         return prodsList;
     }
-    
+    /**
+     * Busca todos los productos dentro de la lista
+     * @return  muestrame la lista de productod
+     */
     public int totalProductos(){
             return this.getN();
     }
 }
+/**
+ * Devuelveme el numero total de productos
+ */
