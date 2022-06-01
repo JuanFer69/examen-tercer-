@@ -44,16 +44,28 @@ public class ListaProductos {
     }
 
     public Producto addProducto(Producto prod) {
+        if ((prod.getcode()==null) || (prod.getcode().isEmpty())) {
+            
+       return null;
+        }
         
         if (listaP.containsKey(prod.getcode())) {
             // System.out.println("Producto con código duplicado");
             return null;
         }
+        
+   
+        
+       
         n++;
         this.setN(n);
         listaP.put(prod.getcode(), prod);
         return prod;
+        
+        
     }
+    
+    
        /**
         * revisame si un producto esta duplicado o no 
         * @param codigo  codena  que se analiza
@@ -61,6 +73,10 @@ public class ListaProductos {
         */
     public Producto eliminarProducto(String codigo) { 
         
+       if ((codigo==null) || (codigo.isEmpty())) {
+            
+       return null;
+        }
         Producto prod = buscarProducto(codigo);
         if (prod != null) {
         listaP.remove(codigo);
@@ -69,12 +85,17 @@ public class ListaProductos {
         }
         return prod;
     }
+    
         /**
          * Demuestrame si el codigo del producto esta
          * @param codigo  
          * @return producto eliminado
          */
     public Producto buscarProducto(String codigo) { 
+         if ((codigo==null) || (codigo.isEmpty())) {
+            
+       return null;
+        }
         Producto prod = null;
         
         if (!listaP.containsKey(codigo)) {
